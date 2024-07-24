@@ -1376,10 +1376,11 @@ audio {
 /* ============================================== POSITION */
 .cake {
   position: absolute;
-  left: 45%;
-  top: 65%;
+  left: 43%;
+  top: 60%;
   display: none;
-  width: calc(var(--D) / 2);
+  height: 25%;
+  width: 13%;
 }
 
 /* ============================================== BASE */
@@ -1575,6 +1576,51 @@ p {
     }
 
 
+	.pic-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100vh; /* Full viewport height to center vertically */
+	  }
+	  
+	  .us {
+		width: 500px; /* Desired width of the image */
+		height: 500px; /* Making the image square */
+		object-fit: cover; /* Ensures the image covers the square area */
+		border-radius: 10px; /* Optional: to add rounded corners */
+		transition: box-shadow 0.3s ease-in-out;
+		cursor: pointer; /* Smooth transition for the glow effect */
+	  }
+	  
+	  .us:hover {
+		box-shadow: 0 0 80px rgba(163, 43, 255, 0.8); /* Glow effect on hover */
+	  }
+	  
+	  
+	  .note {
+		margin-top: 20px; /* Space between the image and the note */
+		text-align: center; /* Center the text */
+		font-size: 16px; /* Adjust font size as needed */
+		color: #333; /* Adjust color as needed */
+	  }
+	  
+	  .letter {
+		display: inline-block;
+		opacity: 0;
+		animation: fadeIn 0.5s forwards;
+	  }
+	  .space {
+		display: inline-block; /* Preserve space between words */
+		width: 0.5em; /* Adjust the width to represent a space */
+	  }
+	  
+	  @keyframes fadeIn {
+		to {
+		  opacity: 1;
+		}
+	  }
+	  
 
     /*controlling tablet width*/
     /*@media only screen and (max-width: 720px){

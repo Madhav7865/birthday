@@ -3,8 +3,11 @@ import { Helmet } from 'react-helmet';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import $ from 'jquery';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Pic from './Pic';
 
-function App() {
+
+function HomePage() {
   useEffect(() => {
     $(window).on('load', function() {
       $('.loading').css('opacity', '0');
@@ -34,8 +37,8 @@ function App() {
         $('#b11').animate({ top: 240, left: vw - 350 }, 500);
         $('#b22').animate({ top: 240, left: vw - 250 }, 500);
         $('#b33').animate({ top: 240, left: vw - 150 }, 500);
-        $('#b44').animate({ top: 240, left: vw - 100 }, 500);
-        $('#b55').animate({ top: 240, left: vw + 100 }, 500);
+        $('#b44').animate({ top: 240, left: vw - 50 }, 500);
+        $('#b55').animate({ top: 240, left: vw + 50 }, 500);
         $('#b66').animate({ top: 240, left: vw + 150 }, 500);
         $('#b77').animate({ top: 240, left: vw + 250 }, 500);
         $('#b88').animate({ top: 240, left: vw + 300 }, 500);
@@ -61,9 +64,6 @@ function App() {
         $(this).fadeOut('slow').delay(6000).promise().done(function() {
           $('#bannar_coming').fadeIn('slow');
         });
-        setTimeout(function() {
-          audio.pause();
-      }, 110000);
       });
 
       $('#bannar_coming').on("click",function() {
@@ -95,29 +95,20 @@ function App() {
         loopAnimation('#b9');
         loopAnimation('#b10');
         $(this).fadeOut('slow').delay(4000).promise().done(function() {
-          $('#cake_fadein').fadeIn('slow');
+          $('#wish_message').fadeIn('slow');
         });
       });
       $('#cake_fadein').on("click",function() {
         $('.cake').fadeIn('slow');
         $(this).fadeOut('slow').delay(2000).promise().done(function() {
-          $('#light_candle').fadeIn('fast');
+          $('#story').fadeIn('fast');
         });
       });
 
-      $('#light_candle').on("click",function() {
-        $('.fuego').fadeIn('slow');
-        $(this).fadeOut('slow').promise().done(function() {
-          $('#wish_message').fadeIn('slow');
-        });
-      });
 
       $('#wish_message').on("click",function() {
         vw = $(window).width() / 2;
-        $('#b1,#b2,#b3,#b4,#b5,#b6,#b7,#b8,#b9,#b10').stop();
-        $('#b1').attr('id', 'b11');
-        $('#b2').attr('id', 'b22');
-        $('#b3').attr('id', 'b33');
+        $('#b4,#b5,#b6,#b7,#b8,#b9,#b10').stop();
         $('#b4').attr('id', 'b44');
         $('#b5').attr('id', 'b55');
         $('#b6').attr('id', 'b66');
@@ -125,20 +116,17 @@ function App() {
         $('#b8').attr('id', 'b88');
         $('#b9').attr('id', 'b99');
         $('#b10').attr('id', 'b1010');
-        $('#b11').animate({ top: 240, left: vw - 400 }, 500);
-        $('#b22').animate({ top: 240, left: vw - 300 }, 500);
-        $('#b33').animate({ top: 240, left: vw - 200 }, 500);
-        $('#b44').animate({ top: 240, left: vw - 100 }, 500);
-        $('#b55').animate({ top: 240, left: vw - 50 }, 500);
-        $('#b66').animate({ top: 240, left: vw + 50 }, 500);
-        $('#b77').animate({ top: 240, left: vw + 100 }, 500);
-        $('#b88').animate({ top: 240, left: vw + 200 }, 500);
-        $('#b99').animate({ top: 240, left: vw + 300 }, 500);
-        $('#b1010').animate({ top: 240, left: vw + 400 }, 500);
+        $('#b44').animate({ top: 240, left: vw - 350 }, 500);
+        $('#b55').animate({ top: 240, left: vw - 250 }, 500);
+        $('#b66').animate({ top: 240, left: vw - 150 }, 500);
+        $('#b77').animate({ top: 240, left: vw -50 }, 500);
+        $('#b88').animate({ top: 240, left: vw +50 }, 500);
+        $('#b99').animate({ top: 240, left: vw + 150 }, 500);
+        $('#b1010').animate({ top: 240, left: vw + 250 }, 500);
         $('.balloons').css('opacity', '0.9');
         $('.balloons h2').fadeIn(3000);
         $(this).fadeOut('slow').delay(3000).promise().done(function() {
-          $('#story').fadeIn('slow');
+          $('#cake_fadein').fadeIn('slow');
         });
       });
 
@@ -187,18 +175,14 @@ function App() {
       </Helmet>
 
       <div id="myAudio" className="loading"></div>
-      <audio className="song" controls loop>
-        <source src="hbd.mp3" />
-        Your browser isn't supported for this Audio!!.
-      </audio>
       <div className="balloons text-center" id="b1">
-        <h2 className="yellow">H</h2>
+        <h2 className="yellow"></h2>
       </div>
       <div className="balloons text-center" id="b2">
-        <h2 className="blue">B</h2>
+        <h2 className="blue"></h2>
       </div>
       <div className="balloons text-center" id="b3">
-        <h2 className="red">D</h2>
+        <h2 className="red"></h2>
       </div>
       <div className="balloons text-center" id="b4">
         <h2 className="green">S</h2>
@@ -251,9 +235,7 @@ function App() {
         </div>
         <div className="row cake-cover">
           <div className="col-md-12 text-center">
-            <div className="cake">
               <img src="cake128.png" className='cake'/>
-            </div>
           </div>
         </div>
         <div className="position-absolute bottom-0 w-100 message">
@@ -272,14 +254,30 @@ function App() {
                     <button class=" m-4 bubbly-button" id="play">Special Music for You!! Let's play</button>
                     <button class=" m-4 bubbly-button" id="bannar_coming">Let's do some decoration!!</button>
                     <button class="m-4 bubbly-button" id="balloons_flying">Some Balloons!!</button>
+                    <button class= "m-4 bubbly-button" id="wish_message">Happy Birthday Smradhi!!</button>
                     <button class="m-4 bubbly-button" id="cake_fadein">Special Cake for You</button>
-                    <button class="m-4 bubbly-button" id="light_candle">Light a Candle</button>
-                    <button class= "m-4 bubbly-button" id="wish_message">Happy Birthday Sachin!!</button>
-                    <button class=" m-4 bubbly-button" id="story">Message for You Buddy!!</button>
+                    <Link to="/pic">
+                    <button class=" m-4 bubbly-button" id="story">hello</button>
+                    </Link>
                 </div>
             </div>
     </div>
     </div>
+  );
+}
+function App() {
+  return (
+    <Router>
+        {/* The persistent audio player */}
+        <audio className="song" controls loop style={{ display: 'none' }}>
+          <source src="hbd.mp3" />
+          Your browser isn't supported for this Audio!!
+        </audio>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/pic" element={<Pic />} />
+      </Routes>
+    </Router>
   );
 }
 
