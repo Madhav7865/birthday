@@ -10,6 +10,22 @@ function App() {
       $('.loading').css('opacity', '0');
       $('.container').css('opacity', '1');
     });
+    function animateButton(event) {
+      var button = event.currentTarget; // Get the button that was clicked
+      
+      // Example animation effect
+      button.classList.add('animate');
+      
+      // Remove the class after animation to allow repeated animations
+      setTimeout(function() {
+        button.classList.remove('animate');
+      }, 1000); // Adjust timeout duration to match animation duration
+    }
+    
+    var bubblyButtons = document.getElementsByClassName("bubbly-button");
+    for (var i = 0; i < bubblyButtons.length; i++) {
+    bubblyButtons[i].addEventListener('click', animateButton, false);
+    }
     $(function() {
       var vw;
       $(window).on(function() {
@@ -252,14 +268,14 @@ function App() {
         <div class='position-absolute bottom-0 w-100'>
             <div class="d-flex justify-content-center">
                 <div class="text-center">
-                    <button class="btn btn-primary m-4" id="turn_on">Turn On Lights</button>
-                    <button class="btn btn-primary m-4" id="play">Special Music for You!! Let's play</button>
-                    <button class="btn btn-primary m-4" id="bannar_coming">Let's do some decoration!!</button>
-                    <button class="btn btn-primary m-4" id="balloons_flying">Some Balloons!!</button>
-                    <button class="btn btn-primary m-4" id="cake_fadein">Special Cake for You</button>
-                    <button class="btn btn-primary m-4" id="light_candle">Light a Candle</button>
-                    <button class="btn btn-primary m-4" id="wish_message">Happy Birthday Sachin!!</button>
-                    <button class="btn btn-primary m-4" id="story">Message for You Buddy!!</button>
+                    <button class="m-4 bubbly-button" id="turn_on">Turn On Lights</button>
+                    <button class=" m-4 bubbly-button" id="play">Special Music for You!! Let's play</button>
+                    <button class=" m-4 bubbly-button" id="bannar_coming">Let's do some decoration!!</button>
+                    <button class="m-4 bubbly-button" id="balloons_flying">Some Balloons!!</button>
+                    <button class="m-4 bubbly-button" id="cake_fadein">Special Cake for You</button>
+                    <button class="m-4 bubbly-button" id="light_candle">Light a Candle</button>
+                    <button class= "m-4 bubbly-button" id="wish_message">Happy Birthday Sachin!!</button>
+                    <button class=" m-4 bubbly-button" id="story">Message for You Buddy!!</button>
                 </div>
             </div>
     </div>
