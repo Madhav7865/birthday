@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
 
 function Pic() {
-    useEffect(() => {
-        const letters = document.querySelectorAll('.letter');
-        letters.forEach((letter, index) => {
-          letter.style.animationDelay = `${index * 0.1}s`; // Delay each letter's animation
-        });
-      }, []);
+  useEffect(() => {
+    const letters = document.querySelectorAll('.letter');
+    letters.forEach((letter, index) => {
+        letter.style.animationDelay = `${index * 0.1}s`; // Delay each letter's animation
+    });
+}, []);
     
-      const note = "This is a note below the image.";
+      const note = "Heyyloo Smradhi. A very special day ";
     
   return (
     <div className="pic-container">
