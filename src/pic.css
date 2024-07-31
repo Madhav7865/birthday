@@ -27,8 +27,9 @@
   .note {
     margin-top: 20px; /* Space between the image and the note */
     text-align: center; /* Center the text */
-    font-size: 16px; /* Adjust font size as needed */
-    color: #333; /* Adjust color as needed */
+    font-size: 20px; /* Adjust font size as needed */
+    width: 76%;
+    color: #333; /* Adjust color as needed */ /* Allow hyphens to be added where appropriate */
   }
   
   .letter {
@@ -36,13 +37,18 @@
     opacity: 0;
     animation: fadeIn 0.5s forwards;
   }
+  
   .space {
     display: inline-block; /* Preserve space between words */
     width: 0.5em; /* Adjust the width to represent a space */
   }
   
   @keyframes fadeIn {
-    to {
+    0% {
+      opacity: 0;
+    }
+    100% {
       opacity: 1;
     }
   }
+  
