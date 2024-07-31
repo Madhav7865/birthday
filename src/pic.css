@@ -8,8 +8,8 @@
   }
   
   .us {
-    width: 500px; /* Desired width of the image */
-    height: 500px; /* Making the image square */
+    width: 30%; /* Desired width of the image */
+    height: 70%; /* Making the image square */
     object-fit: cover; /* Ensures the image covers the square area */
     border-radius: 10px; /* Optional: to add rounded corners */
     animation: glow 1.5s infinite alternate; /* Animation for the glow effect */
@@ -44,10 +44,7 @@
   }
   
   @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
+    to {
       opacity: 1;
     }
   }
